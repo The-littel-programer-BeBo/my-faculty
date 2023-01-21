@@ -1,0 +1,422 @@
+/*--start variables--*/
+:root {
+  --background-color:#fff;
+  --second-background:#f8f9fa;
+  --main-color:#066689;
+  --second-color:#3b96ba;
+  --third-color:#bf121a;
+  --black-color: #212529;
+  --box-shadow:#a3a3a3;
+}
+
+/*--end variables--*/
+/*--start global rules--*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  transition: 300ms ease-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+  -webkit-transition: 300ms ease-out;
+  -moz-transition: 300ms ease-out;
+  -ms-transition: 300ms ease-out;
+  -o-transition: 300ms ease-out;
+  transition-property: none;
+}
+
+html,
+body {
+  width: 100vw;
+  scroll-behavior: smooth;
+  background-color: var(--background-color);
+  color: var(--main-color);
+  overflow: hidden overlay;
+  font-size: max(1vw, 1vh);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  direction: rtl;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 96vw;
+  margin: 0px auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: min(1vw, 10px);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00455e;
+  border-radius: 10vw;
+  -webkit-border-radius: 10vw;
+  -moz-border-radius: 10vw;
+  -ms-border-radius: 10vw;
+  -o-border-radius: 10vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #006083;
+}
+
+.warning {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5vh 1vw 0.8vh 1vw;
+  margin: 2vh 2vw;
+  font-size: 1.6rem;
+  color: var(--third-color);
+  border: 2px solid;
+  border-radius: 2vw;
+  -webkit-border-radius: 2vw;
+  -moz-border-radius: 2vw;
+  -ms-border-radius: 2vw;
+  -o-border-radius: 2vw;
+}
+.warning i {
+  margin-left: 1vw;
+}
+
+/*--end global rules--*/
+body nav {
+  width: 100%;
+  height: 12vh;
+  padding: 0 2vw 0 1vw;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--second-background);
+  color: rgba(0, 0, 0, 0.6);
+}
+body nav.nav-active {
+  box-shadow: 0 0 5px 0 var(--box-shadow);
+}
+body nav .switch:not(.dropdown) {
+  display: none;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+body nav .switch:not(.dropdown)::before {
+  cursor: pointer;
+}
+body nav .switch:not(.dropdown):hover {
+  color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -o-transform: scale(1.3);
+}
+body nav .switch:not(.dropdown).bar {
+  font-size: 3em;
+  margin-right: 1.5vw;
+}
+body nav .switch:not(.dropdown).close {
+  position: absolute;
+  right: 2vw;
+  top: 1.5vh;
+}
+body nav ul {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5vw;
+  font-size: 2.2em;
+}
+body nav ul li {
+  cursor: pointer;
+  transition-property: transform, scale;
+}
+body nav ul li:not(.dropdown):hover {
+  color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+body nav ul li:not(.dropdown):hover h5 {
+  text-decoration: underline;
+}
+body nav ul li h5 {
+  cursor: pointer;
+}
+body nav ul li.dropdown {
+  position: relative;
+  display: block;
+  font-size: 1.5rem;
+}
+body nav ul li.dropdown:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+body nav ul li.dropdown::before {
+  content: "\f0dd";
+  font-family: "FontAwesome";
+  display: inline-block;
+  position: relative;
+  top: -0.2vh;
+}
+body nav ul li.dropdown .dropdown-menu {
+  width: 18rem;
+  padding: 1vh 0;
+  position: absolute;
+  right: -50%;
+  top: 200%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #aaa;
+  border-radius: 0.5vw;
+  background: #fff;
+  z-index: 99;
+  display: none;
+  -webkit-border-radius: 0.5vw;
+  -moz-border-radius: 0.5vw;
+  -ms-border-radius: 0.5vw;
+  -o-border-radius: 0.5vw;
+}
+body nav ul li.dropdown .dropdown-menu.show {
+  display: flex;
+}
+body nav ul li.dropdown .dropdown-menu a {
+  width: 100%;
+  padding: 1vh 3vw;
+  text-align: center;
+}
+body nav ul li.dropdown .dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+body nav .logo {
+  width: 9vh;
+  background-color: transparent;
+}
+@media (max-width: 800px) {
+  body nav .switch {
+    display: inline-flex !important;
+  }
+  body nav ul {
+    width: 35vw;
+    height: 100vh;
+    padding-top: 6vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 7vh;
+    background: #fff;
+    box-shadow: 0 0 5px 0 var(--box-shadow);
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+  }
+  body nav ul.list {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+  body nav .logo {
+    width: 8rem;
+  }
+}
+body main {
+  padding-top: 15vh;
+}
+body main h1 {
+  font-size: 3.5rem;
+  text-align: center;
+}
+body main .title {
+  font-size: 2.8rem;
+  margin: 5vh 2vw 0 0;
+  font-weight: bold;
+}
+body main .title span {
+  float: left;
+  margin-left: 3vw;
+  font-weight: normal;
+}
+body main form {
+  font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+body main form .input-cont {
+  position: relative;
+  flex-basis: 50%;
+}
+body main form .input-cont input:not(input[type=submit]) {
+  width: 80%;
+  margin: 4vh 2vw 0 0;
+  padding: 1.2vh 1.2vw;
+  font-size: 3rem;
+  color: var(--main-color);
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 1vw;
+  cursor: text;
+}
+body main form .input-cont input:not(input[type=submit])::-moz-placeholder {
+  color: transparent;
+}
+body main form .input-cont input:not(input[type=submit]):-ms-input-placeholder {
+  color: transparent;
+}
+body main form .input-cont input:not(input[type=submit])::placeholder {
+  color: transparent;
+}
+body main form .input-cont input:not(input[type=submit]):focus {
+  outline: none;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+}
+body main form .input-cont input:not(input[type=submit]) ~ span {
+  display: block;
+  position: absolute;
+  background-color: var(--background-color);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: var(--second-color);
+  top: 42px;
+  right: 35px;
+  z-index: 3;
+  transition-property: right, top, color;
+  cursor: text;
+}
+body main form .input-cont input:not(input[type=submit]):not(:-moz-placeholder-shown) ~ span {
+  color: var(--main-color);
+  top: 15px;
+  right: 25px;
+  font-weight: bold;
+}
+body main form .input-cont input:not(input[type=submit]):not(:-ms-input-placeholder) ~ span {
+  color: var(--main-color);
+  top: 15px;
+  right: 25px;
+  font-weight: bold;
+}
+body main form .input-cont input:not(input[type=submit]):focus ~ span, body main form .input-cont input:not(input[type=submit]):not(:placeholder-shown) ~ span {
+  color: var(--main-color);
+  top: 15px;
+  right: 25px;
+  font-weight: bold;
+}
+body main form .input-cont i {
+  position: absolute;
+  top: 50px;
+  left: 10vw;
+  cursor: pointer;
+}
+body main form .input-cont i::before {
+  cursor: pointer;
+}
+body main form input[type=submit] {
+  padding: 1vh 1.5vw;
+  margin: 4vh 0;
+  transform: translateX(15%);
+  background-color: var(--background-color);
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  border-radius: 1vw;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-border-radius: 1vw;
+  -moz-border-radius: 1vw;
+  -ms-border-radius: 1vw;
+  -o-border-radius: 1vw;
+  -webkit-transform: translateX(15%);
+  -moz-transform: translateX(15%);
+  -ms-transform: translateX(15%);
+  -o-transform: translateX(15%);
+}
+body main form input[type=submit]:hover {
+  background-color: var(--main-color);
+  color: var(--background-color);
+}
+body main form .select-cont {
+  flex-basis: 50%;
+  outline: none;
+}
+body main form .select-cont select {
+  width: 80%;
+  margin: 4vh 2vw 0 0;
+  padding: 1.2vh 1.2vw;
+  font-size: 3rem;
+  color: var(--main-color);
+  border: 2px solid #ccc;
+  border-radius: 1vw;
+}
+body main form .select-cont select:focus {
+  outline: none;
+}
+body .warning-sec .warning {
+  font-size: 3rem;
+  font-weight: 600;
+  border: none;
+  margin: 1vh 2vw 6vh;
+}
+body .contact {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--second-background);
+  font-size: 4.5rem;
+  padding: 10vh 0;
+  box-shadow: 0 0 5px 0 var(--box-shadow);
+}
+body .contact i {
+  padding: 1.5vw;
+  border-radius: 50%;
+  cursor: pointer;
+}
+body .contact i::before {
+  cursor: pointer;
+}
+body .contact i:hover {
+  color: var(--background-color);
+  background: var(--main-color);
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+body footer {
+  font-size: 3rem;
+  padding: 1vh 0 1.5vh;
+  text-align: center;
+  background-color: var(--main-color);
+  color: var(--background-color);
+}/*# sourceMappingURL=style.css.map */
