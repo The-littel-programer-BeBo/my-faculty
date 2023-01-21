@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بيانات الطلاب الجدد</title>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- main templet css file -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <nav id="nav">
+    <div class="logo-cont">
+      <img class="logo" title="faculty icon" src="image/logo.png"/>
+    </div>
+    <i class="fa-solid fa-bars switch bar" data-switch="list"></i>
+    <ul data-class="list">
+      <i class="fa-solid fa-xmark switch close" data-switch="list"></i>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown switch" data-switch="show">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            خدمات آخرى
+        </a>
+        <div class="dropdown-menu" data-class="show">
+            <a class="dropdown-item" href="/ScienceAstStaffInCome.aspx">حساب الاعضاء</a>
+            <a class="dropdown-item" href="/ScienceAstStudentServies.aspx">خدمات طلابية</a>
+            <a class="dropdown-item" href="#">خطة الدراسة</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ScienceAstStudentResultALL.aspx"><h5>نتيجة الطلاب</h5></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ScienceAstStudentUnder.aspx"><h5>طلاب الكلية</h5></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ScienceAstGraduate_Studies.aspx"><h5>الدراسات العليا</h5></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ScienceAstLaibrary.aspx"><h5>مكتبة الكلية</h5></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ScienceAstSubStaff.aspx"><h5>العاملين</h5></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ScienceAstStaffShow.aspx"><h5>هيئة التدريس</h5></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ScienceAsyut.aspx"><h5>الصفحة الرئيسية</h5></a>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <h1>تقديم طلب مراجعة وتعديل بيانات طلاب بكلية العلوم بنين 
+      <br> جامعة الأزهر بأسيوط
+    </h1>
+    <p class="title">
+      برجاء ادخال البيانات التالية بشكل صحيح
+      <span id="TextCYear"></span>
+    </p>
+    <p class="warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      البيانات المكتوبة تحت مسؤلية الطالب
+    </p>
+    <form action="">
+      <div class="input-cont">
+          <input type="text" placeholder="الرقم القومي">
+          <span>الرقم القومي</span>
+          <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="input-cont">
+        <input type="text" placeholder="الاسم رباعي عربي">
+        <span>الاسم رباعي عربي</span>
+      </div>
+      <div class="input-cont">
+        <input type="text" placeholder="رقم الجلوس">
+        <span>رقم الجلوس</span>
+      </div>
+      <div class="input-cont">
+        <input type="text" placeholder="رقم الهاتف" id="valid">
+        <!-- <p class="warning">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          اصلح الخطأ بالأعلي 
+        </p> -->
+        <span>رقم الهاتف</span>
+      </div>
+      <div class="input-cont">
+        <input type="email" placeholder="البريد الالكتروني">
+        <span>البريد الالكتروني</span>
+      </div>
+      <div class="select-cont">
+        <select name="ctl00$Sections2" id="Sections2">
+          <option value="الشعبة" selected disabled>الشعبة</option>
+          <option value="1">الأولى شعبة علوم بيولوجية</option>
+          <option value="2"> الأولى  شعبة فيزيائية ورياضيات</option>
+          <option value="3">الأولى شعبة علوم جيولوجية</option>
+          <option value="4">الأولى شعبة علوم كيميائية</option>
+          <option value="5">الثانية شعبة بيولوجى خاص</option>
+          <option value="6">الثانية شعبة فيزيائية ورياضيات</option>
+          <option value="7">الثانية شعبة علوم جيولوجية</option>
+          <option value="8">الثانية شعبة علوم كيميائية</option>
+          <option value="27">الثانية البيولوجى الكيمياء</option>
+          <option value="9">الثالثة شعبة بحار واسماك</option>
+          <option value="10">الثالثة شعبة فيزياء خاصة</option>
+          <option value="11">الثالثة شعبة جيولوجيا خاصة</option>
+          <option value="12">الثالثة شعبة حيوان خاص</option>
+          <option value="13">الثالثة شعبة كيمياء خاصة</option>
+          <option value="14">الثالثة شعبة ميكروبيولوجى خاص</option>
+          <option value="15">الثالثة شعبة نبات خاص</option>
+          <option value="16">الثالثة شعبة رياضيات خاصة</option>
+          <option value="28">الثالثة شعبة جيوفيزياء</option>
+          <option value="30">الثالثة شعبة ميكروبيولوجي /كيمياء </option>
+          <option value="32">الثالثة علم حيوان كيمياء</option>
+          <option value="33">الثالثة علوم بحار واسماك كيميائية</option>
+          <option value="25">الثالثة شعبة الفيزياء وعلوم الحاسب</option>
+          <option value="36">الثالثة شعبة كيمياء تطبيقية</option>
+          <option value="62">الثالثة شعبة بحتة وحاسب</option>
+          <option value="63">الثالثة شعبة نبات كيمياء</option>
+          <option value="17">الرابعة شعبة جيولوجيا خاصة</option>
+          <option value="18">الرابعة شعبة حيوان خاص</option>
+          <option value="20">الرابعة شعبة فيزياء خاصة</option>
+          <option value="21">الرابعة شعبة كيمياء خاصة</option>
+          <option value="24">الرابعة شعبة نبات خاصة</option>
+          <option value="19">الرابعة شعبة الرياضيات الخاصة</option>
+          <option value="22">الرابعة شعبة ميكروبيولوجى خاص</option>
+          <option value="23">الرابعة شعبة بحار واسماك</option>
+          <option value="26">الرابعة الفيزياء وعلوم الحاسب</option>
+          <option value="64">الرابعة الرياضيات وعلوم الحاسب</option>
+          <option value="29">الرابعة شعبة جيوفيزياء</option>
+          <option value="31">الرابعة شعبة ميكروبيولوجي/كيمياء </option>
+          <option value="34">الرابعة بحار واسماك كيميائية</option>
+          <option value="35">الرابعة علم حيوان كيمياء</option>
+          <option value="65">الرابعة نبات كيمياء</option>
+          <option value="38">الرابعة شعبة كيمياء تطبيقية</option>
+        </select>
+      </div>
+      <div class="select-cont">
+        <select name="ctl00$Mohafza" id="Mohafza">
+          <option value="الفرقه الدراسيه" disabled selected>الفرقه الدراسيه</option>
+          <option value="الفرقة الأولى">الفرقة الأولى</option>
+          <option value="الفرقة الثانية">الفرقة الثانية</option>
+          <option value="الفرقة الثالثة">الفرقة الثالثة</option>
+          <option value="الفرقة الرابعة">الفرقة الرابعة</option>
+          <option value="الفرقة الخامسة">الفرقة الخامسة</option>
+          <option value="الفرقة السادسة">الفرقة السادسة</option>
+        </select>
+      </div>
+      <div class="select-cont">
+        <select name="ctl00$Sections1" id="Sections1">
+          <option value="نوع المشكلة" selected disabled>نوع المشكلة</option>
+          <option value="خطأ في الشعبة">خطأ في الشعبة</option>
+          <option value="خطأ في الرقم الجلوس">خطأ في الرقم الجلوس</option>
+          <option value="البيانات غير موجودة">البيانات غير موجودة</option>
+        </select>
+      </div>
+      <input type="submit" id="submit" value="اضغط هنا لحفظ البيانات">
+    </form>
+  </main>
+  <section class="warning-sec">
+    <p class="warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      البيانات المكتوبة تحت مسؤلية الطالب ويتم استخدامها في معرفة نتيجة الطالب والدرجات الفصلية للمقررات وفي التشعيب للطلاب المستجدين وللفرقة الاولى والثانية
+    </p>
+  </section>
+  <section class="contact">
+    <div>
+      <a title="mail us" href="mailto: [contact@azhar.edu.eg]?subject=&body=">
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+    </div>
+    <div>
+      <a title="our site" href="http://www.azhar.edu.eg/islamicsforfemales-luxor">
+        <i class="fa-solid fa-globe"></i>
+      </a>
+    </div>
+    <div>
+      <i class="fa-solid fa-phone"></i>
+    </div>
+  </section>
+  <footer>
+    <p>
+      كلية العلوم بنين جامعة الأزهر بأسيوط 2022 &copy;
+    </p>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
